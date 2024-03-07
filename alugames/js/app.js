@@ -18,22 +18,36 @@
 
 // versão dos instrutores
 
+// function alterarStatus(id) {
+//     let jogoClicado = document.getElementById(`game-${id}`);
+//     let imagem = jogoClicado.querySelector('.dashboard__item__img');
+//     let botao = jogoClicado.querySelector('.dashboard__item__button');
+//     // let nomeJogo = jogoClicado.querySelector('.dashboard__item__name');
+
+//     // alert(nomeJogo.textContent);
+
+
+//     if (imagem.classList.contains('dashboard__item__img--rented')) {
+//         imagem.classList.remove('dashboard__item__img--rented');
+//         botao.classList.remove('dashboard__item__button--return');
+//         botao.textContent = 'Alugar'
+//     }else {
+//         imagem.classList.add('dashboard__item__img--rented')
+//         botao.classList.add('dashboard__item__button--return');
+//         botao.textContent = 'Devolver'
+//     }
+// }
+
+// versão otimizada
+
 function alterarStatus(id) {
     let jogoClicado = document.getElementById(`game-${id}`);
     let imagem = jogoClicado.querySelector('.dashboard__item__img');
     let botao = jogoClicado.querySelector('.dashboard__item__button');
-    // let nomeJogo = jogoClicado.querySelector('.dashboard__item__name');
 
-    // alert(nomeJogo.textContent);
-
-
-    if (imagem.classList.contains('dashboard__item__img--rented')) {
-        imagem.classList.remove('dashboard__item__img--rented');
-        botao.classList.remove('dashboard__item__button--return');
-        botao.textContent = 'Alugar'
-    }else {
-        imagem.classList.add('dashboard__item__img--rented')
-        botao.classList.add('dashboard__item__button--return');
-        botao.textContent = 'Devolver'
+    if (jogoClicado) {
+        imagem.classList.toggle('dashboard__item__img--rented');
+        botao.classList.toggle('dashboard__item__button--return');
+        botao.textContent = botao.classList.contains('dashboard__item__button--return') ? 'Devolver' : 'Alugar';
     }
 }
