@@ -7,10 +7,10 @@ function sortear() {
     let numero;
 
     for (i = 0; i < quantidadeDeNumeros; i++) {
-        numero = obterNumeroAleatorio(numeroInicial, numeroFinal);
-        while (sorteados.includes(numero)) {
+        
+        do{
             numero = obterNumeroAleatorio(numeroInicial, numeroFinal);
-        }
+        } while (sorteados.includes(numero));
         
         sorteados.push(numero);
             
