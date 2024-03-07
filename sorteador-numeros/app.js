@@ -1,6 +1,28 @@
 function sortear() {
-    let quantidadeDeNumeros = document.getElementById('quantidade').value;
-    let numeroInicial = document.getElementById('de').value;
-    let numeroFinal = document.getElementById('ate').value;
-    alert(`Quantidade ${quantidadeDeNumeros}, de ${numeroInicial} até ${numeroFinal}`)
+    let quantidadeDeNumeros = parseInt(document.getElementById('quantidade').value);
+    let numeroInicial = parseInt(document.getElementById('de').value);
+    let numeroFinal = parseInt(document.getElementById('ate').value);
+    
+    let sorteados = [];
+    let numero;
+
+    for (i = 0; i < quantidadeDeNumeros; i++) {
+        numero = obterNumeroAleatorio(numeroInicial, numeroFinal);
+        while (sorteados.includes(numero)) {
+            numero = obterNumeroAleatorio(numeroInicial, numeroFinal);
+        }
+        
+        sorteados.push(numero);
+            
+    }
+    
+    let resultado = document.getElementById('resultado');
+    resultado.innerHTML = `<label class="texto__paragrafo">Números sorteados: ${sorteados}</label> `;
 }
+
+
+function obterNumeroAleatorio(min, max) {
+    return Math.floor(Math.random() * (max - min) + min);
+}
+
+
