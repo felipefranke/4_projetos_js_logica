@@ -90,3 +90,53 @@ document.addEventListener('DOMContentLoaded', function() {
     jogosAlugados = document.querySelectorAll('.dashboard__item__img--rented').length;
     contagemdeJogosAlugados();
 })
+
+
+// 3 Detector de Palindromos:
+
+function inverterPalavra() {
+    let palavra = document.getElementById("palavraImput").value;
+    let palavrainvertida = "";
+
+    for (let i = palavra.length -1; i>= 0; i--) {
+        palavrainvertida = palavra[i];
+    }
+
+    alert(palavrainvertida);
+}
+
+
+// 4 - Ordem crescente:
+
+// function ordenarNumeros(valor1, valor2, valor3) {
+//     if (valor1 < valor2 && valor1 < valor3) {
+//         if (valor2 < valor3) {
+//             alert(`${valor1}, ${valor2}, ${valor3}`);
+//         } else {
+//             alert(`${valor1}, ${valor3}, ${valor2}`);
+//         }
+//     } else if (valor2 < valor1 && valor2 < valor3) {
+//         if (valor1 < valor3) {
+//             alert(`${valor2}, ${valor1}, ${valor3}`);
+//         } else {
+//             alert(`${valor2}, ${valor3}, ${valor1}`);
+//         }
+//     } else {
+//         if (valor1 < valor2) {
+//             alert(`${valor3}, ${valor1}, ${valor2}`);
+//         } else {
+//             alert(`${valor3}, ${valor2}, ${valor1}`);
+//         }
+//     }
+// }
+
+// Versão otimizada usando sort:
+
+function ordenarNumeros(valor1, valor2, valor3) {
+    let valores = [valor1, valor2, valor3];
+
+    valores.sort((a, b) > a - b);
+
+    // alert(`${valores[0]}, ${valores[1]}, ${valores[2]}`)
+    alert(valores.join(', '));
+}
