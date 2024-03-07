@@ -58,11 +58,16 @@ const resultado = document.getElementById('resultado');
 const botao = document.getElementById('btn-reiniciar');
 
 // Função principal
+
 function sortear() {
     const quantidadeDeNumeros = parseInt(quantidadeInput.value);
     const numeroInicial = parseInt(deInput.value);
     const numeroFinal = parseInt(ateInput.value);
     
+    if (quantidadeDeNumeros > (numeroFinal - numeroInicial)) {
+        alert('O intervalo entre números deve ser maior que a quantidade de números escolhida.');
+        reiniciar();
+    }else {
     const sorteados = new Set();
     let numero;
 
@@ -73,6 +78,7 @@ function sortear() {
     
     resultado.innerHTML = `<label class="texto__paragrafo">Números sorteados: ${[...sorteados]}</label>`;
     alterarStatusBotao();
+    }
 }
 
 // Função para obter número aleatório
